@@ -182,6 +182,24 @@ local function defineIndicatorLightLANTBottom(msg, arg_number, category, descrip
 	}
 end
 
+function parse_indication_number_index(indicator_id)  -- Thanks to [FSF]Ian code
+	-- Custom version of parse_indication function that uses numbers for the index of the output table
+	-- for use in situations where the names of values in the indication are unusable (eg random GUID)
+	-- also adds the number of rows to the table at index 0
+		local t = {}
+		local li = list_indication(indicator_id)
+		local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+		local counter = 0
+		while true do
+			local name, value = m()
+			counter = counter + 1
+			if not name then break end
+				   t[counter]=value
+		end
+		t[0] = counter
+		return t
+	end
+
 ----------------------------------------- BIOS-Profile
 
 
@@ -1492,5 +1510,31 @@ end, 65535, "External Aircraft Model", "Formation Lights")
 defineIntegerFromGetter("EXT_ANTI_COL", function()
 	if LoGetAircraftDrawArgumentValue(620) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Anticollision Lights")
+
+local function get_radio_remote_display(indicatorId,testButtonId)
+-- Get data from specified device (9 for Pilot UHF, 10 for RIO UHF, 13 for Pilot VHF/UHF)
+	local data = parse_indication_number_index(indicatorId);
+-- Get status of relevant test buttom (ID 15004 for Pilot UHF, 15003 for RIO UHF, 405 for Pilot VHF/UHF)
+	local testPressed = GetDevice(0):get_argument_value(testButtonId)
+	local retVal
+
+-- data[0] holds the length of the data table. 7 Indicates it is in manual frequency mode otherwise it is in preset mode
+-- testPressed indicates the current value of the specified radio display test button - if pressed we need to return the test value not the current manual or preset frequency
+-- depending on the type of data and the test button status assemble the result including separator if necessary
+	if data[0]==7 and testPressed == 0 then
+		retVal  = data[5]:sub(1,3) .. data[6] .. data[5]:sub(4)
+	elseif data[0]==7 then
+		retVal  = data[3]:sub(1,3) .. data[4] .. data[3]:sub(4)
+	elseif testPressed == 0 then
+		retVal = data[5]
+	else
+		retVal = data[3]:sub(1,3)  .. data[4] .. data[3]:sub(4)
+	end
+	return retVal
+end
+	
+defineString("PILOT_UHF_REMOTE_DISP", get_radio_remote_display(9,15004), 7, "UHF", "PILOT UHF Remote Display")  
+defineString("PILOT_VHF_UHF_REMOTE_DISP", get_radio_remote_display(13,15003), 7, "UHF", "PILOT VHF/UHF Remote Display")  
+defineString("RIO_UHF_REMOTE_DISP", get_radio_remote_display(10,4005), 7, "UHF", "RIO UHF Remote Display")  
 
 BIOS.protocol.endModule()
