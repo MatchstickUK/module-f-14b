@@ -1541,15 +1541,11 @@ local RIO_UHF_REMOTE_DISP = ""
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004)
 	PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003)
-	RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,4005)
+	RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405)
 end
 
-defineString("PLT_UHF_REMOTE_DISP", function() return PLT_UHF_REMOTE_DISP end, 7, "RADREM", "PILOT UHF ARC-159 Radio Remote Display")  
-defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "RADREM", "PILOT VHF/UHF ARC-182 Radio Remote Display")  
-defineString("RIO_UHF_REMOTE_DISP", function() return RIO_UHF_REMOTE_DISP end, 7, "RADREM", "RIO UHF ARC-159 Radio Remote Display")  
---defineString("PLT_UHF_REMOTE_DISP", get_radio_remote_display(9,15004), 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
---defineString("PLT_VUHF_REMOTE_DISP", get_radio_remote_display(13,15003), 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")  
---defineString("RIO_UHF_REMOTE_DISP", get_radio_remote_display(10,4005), 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
-
+defineString("PLT_UHF_REMOTE_DISP", function() return PLT_UHF_REMOTE_DISP end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
+defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")  
+defineString("RIO_UHF_REMOTE_DISP", function() return RIO_UHF_REMOTE_DISP end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
 
 BIOS.protocol.endModule()
