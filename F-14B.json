@@ -12494,6 +12494,50 @@
                                                                            "physical_variant": "push_button"
                                                                     }
                                             },
+                                  "RADREM": {
+                                                 "PLT_UHF_REMOTE_DISP": {
+                                                                                "category": "RADREM",
+                                                                            "control_type": "display",
+                                                                             "description": "PILOT UHF ARC-159 Radio Remote Display",
+                                                                              "identifier": "PLT_UHF_REMOTE_DISP",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 5258,
+                                                                                                "description": "PILOT UHF ARC-159 Radio Remote Display",
+                                                                                                 "max_length": 7,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "string"
+                                                                                            } ]
+                                                                        },
+                                                "PLT_VUHF_REMOTE_DISP": {
+                                                                                "category": "RADREM",
+                                                                            "control_type": "display",
+                                                                             "description": "PILOT VHF/UHF ARC-182 Radio Remote Display",
+                                                                              "identifier": "PLT_VUHF_REMOTE_DISP",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 5266,
+                                                                                                "description": "PILOT VHF/UHF ARC-182 Radio Remote Display",
+                                                                                                 "max_length": 7,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "string"
+                                                                                            } ]
+                                                                        },
+                                                 "RIO_UHF_REMOTE_DISP": {
+                                                                                "category": "RADREM",
+                                                                            "control_type": "display",
+                                                                             "description": "RIO UHF ARC-159 Radio Remote Display",
+                                                                              "identifier": "RIO_UHF_REMOTE_DISP",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 5274,
+                                                                                                "description": "RIO UHF ARC-159 Radio Remote Display",
+                                                                                                 "max_length": 7,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "string"
+                                                                                            } ]
+                                                                        }
+                                            },
                        "RWR Control Panel": {
                                                 "PLT_RWR_BRIGHT": {
                                                                           "category": "RWR Control Panel",
