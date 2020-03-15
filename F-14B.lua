@@ -1513,7 +1513,7 @@ end, 1, "External Aircraft Model", "Anticollision Lights")
 
 local function get_radio_remote_display(indicatorId,testButtonId)-- Get data from specified device (9 for Pilot UHF, 10 for RIO UHF, 13 for Pilot VHF/UHF)
 	local data = parse_indication_number_index(indicatorId);
--- Get status of relevant test buttom (ID 15004 for Pilot UHF, 15003 for RIO UHF, 405 for Pilot VHF/UHF)
+-- Get status of relevant test buttom (ID 15004 for Pilot UHF, 405 for RIO UHF, 15003 for Pilot VHF/UHF)
 	local testPressed = GetDevice(0):get_argument_value(testButtonId)
 	local retVal
 
@@ -1535,17 +1535,17 @@ local function get_radio_remote_display(indicatorId,testButtonId)-- Get data fro
 end
 
 local PLT_UHF_REMOTE_DISP = ""
-local PLT_VUHF_REMOTE_DISP = ""
 local RIO_UHF_REMOTE_DISP = ""
+local PLT_VUHF_REMOTE_DISP = ""
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	PLT_UHF_REMOTE_DISP = get_radio_remote_display(9,15004)
-	PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003)
 	RIO_UHF_REMOTE_DISP = get_radio_remote_display(10,405)
+	PLT_VUHF_REMOTE_DISP = get_radio_remote_display(13,15003)
 end
 
 defineString("PLT_UHF_REMOTE_DISP", function() return PLT_UHF_REMOTE_DISP end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")  
-defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")  
 defineString("RIO_UHF_REMOTE_DISP", function() return RIO_UHF_REMOTE_DISP end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")  
+defineString("PLT_VUHF_REMOTE_DISP", function() return PLT_VUHF_REMOTE_DISP end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")  
 
 BIOS.protocol.endModule()
