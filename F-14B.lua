@@ -429,6 +429,8 @@ define3PosTumb("RIO_ICS_KY_MODE", 2, 3597, 382, "ICS", "RIO KY MODE Switch")
 defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, {0.0, 1.5}, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode GUARD/MANUAL/PRESET")
 defineMultipositionSwitch("PLT_UHF1_FUNCTION", 3, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function ADF/BOTH/MAIN/OFF")
 defineMultipositionSwitch("PLT_UHF1_PRESETS", 3, 3373, 2032, 20, 0.0833333333, "UHF 1", "PILOT UHF ARC-159 Preset Channel Selector")
+--defineTumb("PLT_UHF1_PRESETS", 3, 3373, 2032, 0.0833333333, {0.0, 1.0}, nil, true, "UHF 1", "PILOT UHF ARC-159 Preset Channel Selector")
+
 defineToggleSwitch("PLT_UHF1_SQUELCH", 3, 3365, 2035, "UHF 1", "PILOT UHF ARC-159 Squelch Switch")
 define3PosTumb("PLT_UHF1_110_DIAL", 3, 3367, 2030, "UHF 1", "PILOT UHF ARC-159 100MHz & 10MHz Dial")
 define3PosTumb("PLT_UHF1_1_DIAL", 3, 3368, 2029, "UHF 1", "PILOT UHF ARC-159 1MHz Dial")
@@ -490,6 +492,8 @@ end
 defineMultipositionSwitch("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 6, 0.2, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode 243 MAN G PRESET READ LOAD")
 defineMultipositionSwitch("RIO_VUHF_MODE", 4, 3413, 358, 5, 0.25, "VUHF", "RIO VHF/UHF ARC-182 MODE OFF T/R T/R&G DF TEST")
 defineMultipositionSwitch("RIO_VUHF_PRESETS", 4, 3415, 352, 30, 0.0833333333, "VUHF", "RIO VHF/UHF ARC-182 Preset Channel Selector")
+--defineTumb("RIO_VUHF_PRESETS", 4, 3415, 352, 0.0833333333, {0.0, 1.0}, nil, true, "VUHF", "RIO VHF/UHF ARC-182 Preset Channel Selector")
+
 defineToggleSwitch("RIO_VUHF_FM_AM", 4, 3419, 359, "VUHF", "RIO VHF/UHF ARC-182 FM/AM Switch")
 defineToggleSwitch("RIO_VUHF_SQUELCH", 4, 3407, 351, "VUHF", "RIO VHF/UHF ARC-182 Squelch Switch")
 define3PosTumb("RIO_VUHF_110_DIAL", 4, 3409, 354, "VUHF", "RIO VUHF ARC-182 100MHz & 10MHz Dial")
